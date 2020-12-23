@@ -7,7 +7,7 @@
 <body>
     <div id="data">
         <h3>Update properties of user:</h3>
-       <form action="/updated" method="POST">
+       <form action="/updated" method="POST" onsubmit="return validate()">
         <input type="hidden" name="id" value="<%=data.id%>">    
            Update name
         <input type="text" name="name">
@@ -23,4 +23,5 @@
     
     </div>
 </body>
+<script src="../js/index.js"></script>
 </html>

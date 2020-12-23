@@ -5,12 +5,14 @@
     <link rel="stylesheet" href="../css/style.css" type="text/css">
 </head>
 <body>
-    <form action="/inserted" method="POST">
+    <form action="/inserted" method="POST" onsubmit="return validate()">
         <h3>Insert values on database: </h3>
         <input type="hidden" name="id">
-        Name: <input type="text" name="name" id="">
-        Email: <input type="email" name="email" id="">
+        Name: <input type="text" name="name" id="name">
+        Email: <input type="email" name="email" id="email">
         <input type="submit" value="submit">
     </form>
 </body>
+<script src="../js/index.js" >
+</script>
 </html>
