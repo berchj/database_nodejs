@@ -10,8 +10,8 @@
         <h3>Users from database: </h3>        
             <% for( var i = 0; i < data.length ; i ++ ) {%>
                 <ul>
-                    <li><b>Name: </b><%=data[i].name%></li>
-                    <li><b>Email: </b><%=data[i].email%></li>
+                    <li><b>Name: </b> <a href="update/?id=<%=data[i].id%>"><%=data[i].name%></a></li>
+                    <li><b>Email: </b><a href="update/?id=<%=data[i].id%>"><%=data[i].email%></a></li>
                 </ul>
             <% } %>
     </div>

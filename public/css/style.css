@@ -36,6 +36,7 @@ form{
     margin: 0 auto;  
     text-align: center;  
     margin-top: 1em;
+    align-items: center;
     
 }
 
@@ -51,3 +52,25 @@ form
     margin-top: 1em;
     margin-bottom: 1em;
 }
+
+form[action="update-procesed"]{
+    width: auto;
+}
+
+#details 
+>h3{
+    text-align: center;
+    color:#fff;
+}
+
+#details 
+>ul{
+    width:40%;
+    text-align: center !important;
+    margin: 0 auto;
+    padding: 1em;
+    border-radius: 5px;
+    list-style: none;
+    background-color: #fff;
+}
+

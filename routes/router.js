@@ -32,4 +32,29 @@ router.post('/inserted',(req,res)=>{
 })
 
 
+router.get('/update',(req,res)=>{
+    pool.getConnection((err,PoolConnection)=>{
+        if (err) throw err
+        let q = `SELECT * FROM data WHERE id = ${PoolConnection.escape(req.query.id)}`
+        PoolConnection.query(q,(error,rows,fields)=>{
+            if (error) throw error            
+            return res.render('../public/views/update.ejs', {data:rows[0]})
+        })
+        PoolConnection.release()
+    })
+})
+
+router.post('/updated',(req,res)=>{
+    pool.getConnection((err,PoolConnection)=>{
+        if(err) throw err    
+            let q = `UPDATE data SET name = ${PoolConnection.escape(req.body.name)} WHERE id = ${PoolConnection.escape(req.body.id)}`
+            PoolConnection.query(q,(error,rows,fields)=>{
+                if(error) throw error            
+                res.redirect('/')
+            })                  
+        PoolConnection.release()
+    })
+})  
+
+
 module.exports = router 

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"> 
+    <link rel="stylesheet" href="../css/style.css" type="text/css">
+</head>
+<body>
+    <div id="data">
+        <h3>Update properties of user:</h3>
+       <form action="/updated" method="POST">
+        <input type="hidden" name="id" value="<%=data.id%>">    
+           Update name
+        <input type="text" name="name">
+           <input type="submit" value="submit">
+       </form>
+    </div>
+    <div id="details">
+       <h3> current info about user: </h3>
+       <ul>
+            <li><%=data.name%></li>
+            <li><%=data.email%></li>                     
+       </ul>
+    
+    </div>
+</body>
+</html>
