@@ -46,9 +46,10 @@ router.get('/update',(req,res)=>{
 
 router.post('/updated',(req,res)=>{
     pool.getConnection((err,PoolConnection)=>{
-        if(err) throw err    
-            let q = `UPDATE data SET name = ${PoolConnection.escape(req.body.name)} WHERE id = ${PoolConnection.escape(req.body.id)}`
-            PoolConnection.query(q,(error,rows,fields)=>{
+        if(err) throw err  
+            let q = [`UPDATE data SET name = ${PoolConnection.escape(req.body.name)} WHERE id = ${PoolConnection.escape(req.body.id)}`,`UPDATE data SET email = ${PoolConnection.escape(req.body.email)} WHERE id = ${PoolConnection.escape(req.body.id)}`]
+            //let q = `UPDATE data SET name = ${PoolConnection.escape(req.body.name)} WHERE id = ${PoolConnection.escape(req.body.id)}`
+            PoolConnection.query(q.join(';'),(error,rows,fields)=>{
                 if(error) throw error            
                 res.redirect('/')
             })                  
