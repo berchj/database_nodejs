@@ -57,5 +57,17 @@ router.post('/updated',(req,res)=>{
     })
 })  
 
+router.get('/delete',(req,res)=>{    
+    pool.getConnection((error,PoolConnection)=>{
+        if(error) throw error
+        let q = `DELETE FROM data WHERE id = ${PoolConnection.escape(req.query.id)}`
+        PoolConnection.query(q,(err,rows,fields)=>{
+            if(err) throw err                 
+            res.redirect('/')            
+        })
+        PoolConnection.release()
+    })
+})
+
 
 module.exports = router 
